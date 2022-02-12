@@ -8,7 +8,6 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <img src={`${prefix}/firefox_Dxp4vNtLPT.png`} />
     </div>
   )
 }

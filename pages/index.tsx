@@ -11,14 +11,15 @@ import {
   IoLogoLinkedin,
 } from 'react-icons/io5'
 import { TiSocialAtCircular } from 'react-icons/ti'
-import Link from 'next/link'
 
 export default function Home() {
   return (
     <div className=" flex flex-col bg-lightShades">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>My Portfolio</title>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
       </Head>
       <div className=" mb-10 flex flex-col">
         <Profile />

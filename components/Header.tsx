@@ -5,11 +5,11 @@ interface HeaderProps {
 const Header = ({ children }: HeaderProps) => {
   return (
     <div className=" mt-20 mb-4 text-lg font-bold">
-      <code>
-        {'< '}
+      <code className="flex items-center">
+        &#60;
         {children}
-        {' />'}
-      </code>{' '}
+        /&#62;
+      </code>
     </div>
   )
 }

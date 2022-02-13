@@ -3,7 +3,7 @@ const Profile = () => {
     <div className=" mt-20 flex flex-col items-center justify-center sm:flex-row">
       <img
         src=" ./firefox_Dxp4vNtLPT.png"
-        className=" h-40 w-40 rounded-full border-2 border-info"
+        className=" h-40 w-40 rounded-full border-2 border-info shadow-md"
       />
       <div className=" mx-4 flex flex-col text-center sm:mx-0 sm:ml-6 sm:text-left">
         <h1 className=" text-2xl font-bold">

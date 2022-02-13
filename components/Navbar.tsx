@@ -8,7 +8,7 @@ const Navbar = () => {
   const [isDropped, setDropdown] = useState(false)
 
   return (
-    <div className=" flex flex-col text-lightShades">
+    <div className=" flex text-lightShades">
       <div className=" fixed flex w-screen justify-between bg-primary bg-opacity-70 py-2 backdrop-blur">
         <ul className=" ml-4 flex items-center">
           <li>
@@ -26,7 +26,7 @@ const Navbar = () => {
             <ListLinkButton href="#" text="Contact" />
           </div>
         </ul>
-        <div className="flex flex-col xsm:flex-row ">
+        <div className="mr-4 flex flex-col xsm:flex-row ">
           <div className=" mb-2 mr-2 scale-100 transition-all duration-200 xsm:mb-0 md:scale-0">
             <ActionButton
               onClick={() => {

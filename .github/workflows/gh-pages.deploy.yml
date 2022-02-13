@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      NEXT_PUBLIC_BASE_PATH: /mssalkhalifah.github.io/
+      NEXT_PUBLIC_BASE_PATH: /mssalkhalifah.github.io
 
     strategy:
       matrix:

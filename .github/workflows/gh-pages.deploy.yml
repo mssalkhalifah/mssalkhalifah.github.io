@@ -8,9 +8,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    env:
-      NEXT_PUBLIC_BASE_PATH: /mssalkhalifah.github.io
-
     strategy:
       matrix:
         node-version: [17.x]

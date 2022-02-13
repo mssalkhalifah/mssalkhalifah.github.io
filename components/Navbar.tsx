@@ -12,16 +12,15 @@ const Navbar = () => {
       <div className=" fixed flex w-screen justify-between bg-primary bg-opacity-70 py-2 backdrop-blur">
         <ul className=" ml-4 flex items-center">
           <li>
-            <a
-              href="#"
-              className="text-fg hover:text-fg3 m-1 flex items-center font-bold underline"
-            >
-              <FiHome className=" mr-1 scale-125" />
-              MSSALKHALIFAH
-            </a>
+            <Link href="/">
+              <a className="text-fg hover:text-fg3 m-1 flex items-center font-bold underline">
+                <FiHome className=" mr-1 scale-125" />
+                MSSALKHALIFAH
+              </a>
+            </Link>
           </li>
           <div className=" flex">
-            <ListLinkButton href="#" text="Projects" />
+            <ListLinkButton href="/projects" text="Projects" />
             <ListLinkButton href="#" text="Posts" />
             <ListLinkButton href="#" text="Contact" />
           </div>

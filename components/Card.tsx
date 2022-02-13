@@ -1,18 +1,21 @@
 interface CardProps {
   image?: string
   description?: string
+  title?: string
+  className?: string
 }
 
-const Card = ({ image, description }: CardProps) => {
+const Card = ({ image, description, title, className }: CardProps) => {
   return (
-    <div className=" bg-danger bg-fixed">
-      <img src={image} className=" z-10 max-w-xs scale-95" />
-      <div className=" max-w-xs flex-col overflow-visible bg-lightShades shadow-lg">
-        <div></div>
-        <div>
-          <p>{description}</p>
-        </div>
+    <div
+      className={` ${className} max-w-sm overflow-hidden rounded bg-lightShades shadow-lg`}
+    >
+      <img className="w-full" src={image} alt="Card Image" />
+      <div className="px-6 py-4">
+        <div className="mb-2 text-xl font-bold">{title}</div>
+        <p className=" text-base">{description}</p>
       </div>
+      <div className="px-6 pt-4 pb-2"></div>
     </div>
   )
 }

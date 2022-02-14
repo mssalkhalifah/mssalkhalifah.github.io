@@ -1,10 +1,15 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
 import Card from '../components/Card'
 
-function MyApp({ Component, pageProps, router }: AppProps) {
+type ComponentsWithPageLayout = AppProps & {
+  Component: AppProps['Component'] & {
+    PageLayout?: React.ComponentType
+  }
+}
+
+function MyApp({ Component, pageProps, router }: ComponentsWithPageLayout) {
   return (
     <div className=" top-0 left-0 m-0 min-h-screen bg-lightShades bg-cover p-0">
       <Navbar />
@@ -21,9 +26,13 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           title=" template title"
         />
       </div>
-      <Layout router={router}>
+      {Component.PageLayout ? (
+        <Component.PageLayout>
+          <Component {...pageProps} />
+        </Component.PageLayout>
+      ) : (
         <Component {...pageProps} />
-      </Layout>
+      )}
     </div>
   )
 }

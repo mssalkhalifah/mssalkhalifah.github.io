@@ -1,10 +1,11 @@
 interface HeaderProps {
   children?: React.ReactNode
+  className?: string
 }
 
-const Header = ({ children }: HeaderProps) => {
+const Header = ({ children, className }: HeaderProps) => {
   return (
-    <div className=" mt-20 mb-4 text-lg font-bold">
+    <div className={className ? className : ' mt-20 mb-4 text-lg font-bold'}>
       <code className="flex items-center">
         &#60;
         {children}

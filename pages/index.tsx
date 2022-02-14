@@ -10,6 +10,7 @@ import {
   IoLogoLinkedin,
 } from 'react-icons/io5'
 import { TiSocialAtCircular } from 'react-icons/ti'
+import IndexLayout from '../components/layouts/IndexLayout'
 
 export default function Home() {
   return (
@@ -101,3 +102,5 @@ export default function Home() {
     </div>
   )
 }
+
+Home.PageLayout = IndexLayout

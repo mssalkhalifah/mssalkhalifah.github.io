@@ -11,10 +11,10 @@ const Navbar = () => {
   return (
     <div className=" flex text-lightShades">
       <div className=" fixed flex w-screen justify-between bg-primary bg-opacity-70 py-2 backdrop-blur">
-        <ul className=" ml-4 flex items-center">
+        <ul className=" ml-4 flex items-center text-sm">
           <li>
             <Link href="/">
-              <a className="text-fg hover:text-fg3 m-1 flex items-center font-bold underline">
+              <a className="text-fg m-1 flex items-center font-bold underline hover:text-info">
                 <FiHome className=" mr-1 scale-125" />
                 MSSALKHALIFAH
               </a>

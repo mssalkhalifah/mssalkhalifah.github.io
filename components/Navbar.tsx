@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { FiSun, FiHome, FiList } from 'react-icons/fi'
 import ActionButton from './ActionButton'
+import Dropdown from './Dropdown'
 import LinkButton from './LinkButton'
 
 const Navbar = () => {
@@ -34,15 +35,16 @@ const Navbar = () => {
             >
               <FiList />
             </ActionButton>
-            <div
-              className={`absolute mt-3 ml-[-150px] grid w-40 ${
-                isDropped ? 'opacity-100' : 'opacity-0'
-              } grid-rows-3 rounded-lg bg-lightShades py-1 text-left text-sm uppercase text-darkShades shadow-lg duration-200`}
-            >
-              <DropdownItem text="home" />
-              <DropdownItem text="projects" />
-              <DropdownItem text="contact" />
-            </div>
+            <Dropdown
+              dropdownItems={{
+                PROJECTS: '/projects',
+                POSTS: '/posts',
+                CONTACT: '/contact',
+                SOURCE:
+                  'https://github.com/mssalkhalifah/mssalkhalifah.github.io',
+              }}
+              isDropped={isDropped}
+            />
           </div>
           <div className=" mr-2">
             <ActionButton>
@@ -51,16 +53,6 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div>
-  )
-}
-
-const DropdownItem = ({ text }: { text: string }) => {
-  return (
-    <div className=" mx-1 rounded-lg px-1 py-2 transition-colors duration-100 hover:rounded-lg hover:bg-primary hover:text-lightShades hover:shadow-md">
-      <Link href="#">
-        <a>{text}</a>
-      </Link>
     </div>
   )
 }

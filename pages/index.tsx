@@ -11,10 +11,16 @@ import {
 } from 'react-icons/io5'
 import { TiSocialAtCircular } from 'react-icons/ti'
 import IndexLayout from '../components/layouts/IndexLayout'
+import { ReactElement } from 'react'
+import { motion } from 'framer-motion'
 
 export default function Home() {
   return (
-    <div className=" flex flex-col ">
+    <motion.div
+      className=" flex flex-col "
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+    >
       <Head>
         <title>My Portfolio</title>
         <meta charSet="UTF-8" />
@@ -99,8 +105,10 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
-Home.PageLayout = IndexLayout
+Home.getLayout = (page: ReactElement) => {
+  return <IndexLayout>{page}</IndexLayout>
+}

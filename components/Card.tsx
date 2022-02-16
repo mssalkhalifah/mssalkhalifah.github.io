@@ -29,7 +29,7 @@ const Card = ({ image, description, title, className, link }: CardProps) => {
     >
       <div className=" w-200 h-full overflow-hidden duration-150">
         <Image
-          src="/Airbus.jpg"
+          src={`${image ? image : '/placeholder.jpg'}`}
           placeholder="blur"
           blurDataURL="/placeholder.jpg"
           width="426"

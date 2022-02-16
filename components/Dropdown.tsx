@@ -25,11 +25,11 @@ const Dropdown = ({
 
 const DropdownItem = ({ text, link }: { text?: string; link?: string }) => {
   return (
-    <div className=" mx-1 rounded-lg px-1 py-2 transition-colors duration-100 hover:rounded-lg hover:bg-primary hover:text-lightShades hover:shadow-md">
-      <Link href={link ? link : '#'}>
-        <a>{text}</a>
-      </Link>
-    </div>
+    <Link href={link ? link : '#'}>
+      <a className=" mx-1 rounded-lg px-1 py-2 transition-colors duration-100 hover:rounded-lg hover:bg-primary hover:text-lightShades hover:shadow-md">
+        {text}
+      </a>
+    </Link>
   )
 }
 

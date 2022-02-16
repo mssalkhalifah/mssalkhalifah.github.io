@@ -10,13 +10,11 @@ const IndexLayout = ({ children }: { children: React.ReactNode }) => {
       <Navbar />
       <div className=" mx-2 mt-28 flex flex-col items-center justify-center sm:flex-row">
         <Card
-          image={'/firefox_Dxp4vNtLPT.png'}
           description="lorem jahsdlfikjuuasdlfikjhalksdjfhalsduif asdf asd  asdfasdfasdff uaflsdif asdliuf"
           className=" mb-4 sm:mb-0 sm:mr-14"
           title=" template title"
         />
         <Card
-          image={'/firefox_Dxp4vNtLPT.png'}
           description="lorem jahsdlfikjuuasdlfikjhalksdjfhalsduif asdf asd  asdfasdfasdff uaflsdif asdliuf"
           title=" template title"
         />

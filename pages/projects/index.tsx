@@ -31,7 +31,7 @@ const ProjectPage = () => {
 const GridItem = () => {
   return (
     <div className=" p-2">
-      <Card image="/firefox_Dxp4vNtLPT.png" link="/projects/1" />
+      <Card link="/projects/1" />
     </div>
   )
 }

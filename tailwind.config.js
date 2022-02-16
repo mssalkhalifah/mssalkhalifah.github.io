@@ -17,6 +17,9 @@ module.exports = {
       danger: '#f44336',
     },
     extend: {
+      gridTemplateColumns: {
+        '24fr': 'repeat(2, minmax(0, 4fr))',
+      },
       screens: {
         xsm: '290px',
         // => @media (min-width: 290px) { ... }

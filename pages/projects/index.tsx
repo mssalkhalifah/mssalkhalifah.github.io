@@ -18,7 +18,11 @@ const ProjectPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
       </Head>
-      <div className=" mb-10 grid grid-cols-2">
+      <div className=" mb-10 grid grid-rows-1 sm:grid-cols-2">
+        <GridItem />
+        <GridItem />
+        <GridItem />
+        <GridItem />
         <GridItem />
         <GridItem />
         <GridItem />
@@ -31,7 +35,7 @@ const ProjectPage = () => {
 const GridItem = () => {
   return (
     <div className=" p-2">
-      <Card link="/projects/2" />
+      <Card title='Template' link="/projects/2" description='lorem hhjsdflusadhjsdflusadjsdflusad alkdsjfh alksjdhfla' />
     </div>
   )
 }

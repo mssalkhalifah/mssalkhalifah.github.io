@@ -11,36 +11,36 @@ import { IoArrowForward } from 'react-icons/io5'
 const ProjectPage = () => {
   return (
     <motion.div
-      initial="pageInitial"
-      animate="pageAnimation"
+      initial='pageInitial'
+      animate='pageAnimation'
       variants={{
         pageInitial: { opacity: 0, x: -50 },
         pageAnimation: { opacity: 1, x: 0 },
       }}
     >
-      <main className=" mx-2 mt-2 mb-10 grid max-w-3xl ">
+      <main className=' mx-2 mt-2 mb-10 grid max-w-3xl '>
         <Link href={'/projects'} scroll={false}>
-          <a className=" my-2 flex items-center place-self-start rounded-full bg-primary py-2 px-8 text-lightShades hover:bg-info">
-            <IoArrowForward className=" mr-2 rotate-180" /> Back
+          <a className=' my-2 flex items-center place-self-start rounded-full bg-primary py-2 px-8 text-lightShades hover:bg-info'>
+            <IoArrowForward className=' mr-2 rotate-180' /> Back
           </a>
         </Link>
-        <div className=" relative max-w-xl place-self-center">
+        <div className=' relative max-w-xl place-self-center'>
           <Image
             src={'/placeholder_1280_720.jpg'}
-            width="1280"
-            height="720"
-            className=" rounded-lg"
+            width='1280'
+            height='720'
+            className=' rounded-lg'
           />
         </div>
-        <div className=" mx-2 flex flex-col">
-          <div className=" grid grid-cols-2">
-            <Header className=" mt-4 mb-2 self-center justify-self-center text-xl font-bold">
+        <div className=' mx-2 flex flex-col'>
+          <div className=' grid grid-rows-1 sm:grid-cols-2'>
+            <Header className=' mt-4 mb-2 hidden self-center justify-self-center text-xl font-bold sm:flex'>
               Description
             </Header>
-            <Header className=" mt-4 mb-2 self-center justify-self-center text-xl font-bold">
+            <Header className=' mt-4 mb-2 self-center justify-self-center text-xl font-bold'>
               Stack
             </Header>
-            <div className="m-4 flex flex-col self-center">
+            <div className='m-4 flex flex-col self-center'>
               <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis
                 quas, accusantium ratione obcaecati, qui tenetur nulla velit
@@ -51,35 +51,38 @@ const ProjectPage = () => {
                 quidem accusantium ipsa natus quia velit reiciendis.
               </p>
             </div>
-            <div className=" m-4 flex flex-col">
-              <div className=" grid grid-cols-4">
+            <Header className=' mt-4 mb-2 flex self-center justify-self-center text-xl font-bold sm:hidden'>
+              Description
+            </Header>
+            <div className=' m-4 flex flex-col'>
+              <div className=' grid grid-cols-4'>
                 <Link href={'https://reactjs.org/'}>
                   <a
-                    target="_blank"
-                    className=" min-w-full place-self-start self-center rounded-r-full bg-primary pl-2 text-lightShades hover:bg-info"
+                    target='_blank'
+                    className=' min-w-full place-self-start self-center rounded-r-full bg-primary pl-2 text-lightShades hover:bg-info'
                   >
                     React
                   </a>
                 </Link>
-                <p className=" col-span-3 py-1 pl-4 text-sm">
+                <p className=' col-span-3 py-1 pl-4 text-sm'>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Numquam, eveniet sequi magnam tempore dolorum pariatur.
                 </p>
                 <Link href={'#'}>
-                  <a className=" min-w-full place-self-start self-center rounded-r-full bg-primary pl-2 text-lightShades hover:bg-info">
+                  <a className=' min-w-full place-self-start self-center rounded-r-full bg-primary pl-2 text-lightShades hover:bg-info'>
                     Tailwind
                   </a>
                 </Link>
-                <p className=" col-span-3 py-1 pl-4 text-sm">
+                <p className=' col-span-3 py-1 pl-4 text-sm'>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Numquam, eveniet sequi magnam tempore dolorum pariatur.
                 </p>
                 <Link href={'#'}>
-                  <a className=" min-w-full place-self-start self-center rounded-r-full bg-primary pl-2 text-lightShades hover:bg-info">
+                  <a className=' min-w-full place-self-start self-center rounded-r-full bg-primary pl-2 text-lightShades hover:bg-info'>
                     NextJs
                   </a>
                 </Link>
-                <p className=" col-span-3 py-1 pl-4 text-sm">
+                <p className=' col-span-3 py-1 pl-4 text-sm'>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Numquam, eveniet sequi magnam tempore dolorum pariatur.
                 </p>

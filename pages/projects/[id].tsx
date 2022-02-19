@@ -26,7 +26,9 @@ const ProjectPage = () => {
         </Link>
         <div className=' relative max-w-xl place-self-center'>
           <Image
-            src={'/placeholder_1280_720.jpg'}
+            src='/placeholder_1280_720.jpg'
+            placeholder='blur'
+            blurDataURL='/placeholder.jpg'
             width='1280'
             height='720'
             className=' rounded-lg'

@@ -10,23 +10,21 @@ const ProjectPage = () => {
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      className=" flex flex-col items-center justify-center"
+      className=' flex flex-col items-center justify-center'
     >
       <Head>
         <title>My Portfolio</title>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
+        <meta charSet='UTF-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta http-equiv='X-UA-Compatible' content='ie=edge'></meta>
       </Head>
-      <div className=" mb-10 grid grid-rows-1 sm:grid-cols-2">
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
+      <div className='mb-10 max-w-3xl flex flex-col overflow-x-auto'>
+        <div className=' flex flex-row p-2'>
+          <GridItem />
+          <GridItem />
+        </div>
+        <div className='flex-row flex p-2'>
+        </div>
       </div>
     </motion.div>
   )
@@ -34,8 +32,12 @@ const ProjectPage = () => {
 
 const GridItem = () => {
   return (
-    <div className=" p-2">
-      <Card title='Template' link="/projects/2" description='lorem hhjsdflusadhjsdflusadjsdflusad alkdsjfh alksjdhfla' />
+    <div className='p-2'>
+      <Card
+        title='Template'
+        link='/projects/2'
+        description='lorem hhjsdflusadhjsdflusadjsdflusad alkdsjfh alksjdhfla'
+      />
     </div>
   )
 }

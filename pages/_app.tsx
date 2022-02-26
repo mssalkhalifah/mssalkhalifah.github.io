@@ -5,6 +5,7 @@ import Card from '../components/Card'
 import { NextPage } from 'next'
 import { ReactElement, ReactNode } from 'react'
 import { motion } from 'framer-motion'
+import AppContext from '../components/context/AppContext'
 
 type ComponentsWithPageLayout = AppProps & {
   Component: AppProps['Component'] & {
@@ -22,7 +23,11 @@ type AppPropsWithLayout = AppProps & {
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page)
-  return getLayout(<Component {...pageProps} />)
+  return (
+    <AppContext.Provider value={{ currentPage: '' }}>
+      {getLayout(<Component {...pageProps} />)}
+    </AppContext.Provider>
+  )
 }
 
 export default MyApp

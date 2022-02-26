@@ -19,6 +19,10 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         '24fr': 'repeat(2, minmax(0, 4fr))',
+        '50%': 'repeat(4, 50%)',
+      },
+      gridTemplateRows: {
+        '50%': 'repeat(2, 50%)'
       },
       screens: {
         xsm: '290px',

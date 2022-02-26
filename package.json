@@ -7,11 +7,15 @@
     "export": "next export"
   },
   "dependencies": {
+    "@react-three/drei": "^8.10.6",
+    "@react-three/fiber": "^7.0.26",
+    "@types/three": "^0.137.0",
     "framer-motion": "^6.2.6",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "three": "^0.137.5"
   },
   "devDependencies": {
     "@types/node": "17.0.4",

@@ -13,24 +13,37 @@ import { TiSocialAtCircular } from 'react-icons/ti'
 import IndexLayout from '../components/layouts/IndexLayout'
 import { ReactElement } from 'react'
 import { motion } from 'framer-motion'
+import Card from '../components/Card'
 
 export default function Home() {
   return (
     <motion.div
-      className=" flex flex-col "
+      className=' mt-16 flex flex-col'
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
     >
       <Head>
         <title>My Portfolio</title>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
+        <meta charSet='UTF-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta http-equiv='X-UA-Compatible' content='ie=edge'></meta>
       </Head>
-      <div className=" flex flex-col">
+      <div className=' flex flex-col'>
+        <div className='mx-2 flex flex-col items-center justify-center 2xl:flex-row'>
+          <Card
+            description='lorem jahsdlfikjuuasdlfikjhalksdjfhalsduif asdf asd  asdfasdfasdff uaflsdif asdliuf'
+            className=' mb-4 self-center 2xl:mx-2'
+            title=' template title'
+          />
+          <Card
+            description='lorem jahsdlfikjuuasdlfikjhalksdjfhalsduif asdf asd  asdfasdfasdff uaflsdif asdliuf'
+            title=' template title'
+            className=' mb-4 self-center 2xl:mx-2'
+          />
+        </div>
         <Profile />
-        <div className=" xms:mx-0 mx-4 flex max-w-lg flex-col items-center self-center">
-          <div>
+        <div className='grid max-w-3xl grid-rows-3 2xl:grid-cols-2 2xl:grid-rows-1 '>
+          <div className='flex flex-col items-center justify-center p-4'>
             <Header>What I do</Header>
             <Paragraph>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
@@ -42,7 +55,7 @@ export default function Home() {
               qui laboriosam quasi vero doloribus.
             </Paragraph>
           </div>
-          <div>
+          <div className='flex flex-col items-center justify-center p-4'>
             <Header>Biography</Header>
             <GridTable
               content={
@@ -50,8 +63,8 @@ export default function Home() {
                   ['2018', 'contentasccc'],
                   [
                     '2019',
-                    <p className=" flex items-center">
-                      <IoSchoolOutline className=" mr-4" />
+                    <p className=' flex items-center'>
+                      <IoSchoolOutline className=' mr-4' />
                       Imam Mohammad Ibn Saud Islamic University
                     </p>,
                   ],
@@ -67,9 +80,9 @@ export default function Home() {
               }
             />
           </div>
-          <div>
+          <div className=' flex flex-col items-center justify-center p-4 2xl:col-span-2'>
             <Header>
-              What I <IoHeart className=" ml-2" />
+              What I <IoHeart className=' ml-2' />
             </Header>
             <Paragraph>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione
@@ -77,31 +90,6 @@ export default function Home() {
               saepe inventore deleniti nesciunt nostrum, ad, deserunt in sed
               tenetur animi adipisci.
             </Paragraph>
-          </div>
-          <div className=" pb-10">
-            <Header>
-              Social <TiSocialAtCircular className=" ml-2" />
-            </Header>
-            <div className=" flex flex-col">
-              <p className=" mb-4 text-lg font-semibold">@mssalkhalifah</p>
-              <div className=" flex scale-150 flex-row items-center justify-evenly">
-                <a
-                  href="https://github.com/mssalkhalifah"
-                  target="_blank"
-                  className=" transition-color rounded-full bg-primary p-2 shadow-md hover:bg-info"
-                >
-                  <IoLogoGithub className=" text-lightShades" />
-                </a>
-                |
-                <a
-                  href="https://linkedin.com/in/mssalkhalifah"
-                  target="_blank"
-                  className=" rounded-full bg-primary p-2 shadow-md transition-colors hover:bg-info"
-                >
-                  <IoLogoLinkedin className="  text-lightShades" />
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>

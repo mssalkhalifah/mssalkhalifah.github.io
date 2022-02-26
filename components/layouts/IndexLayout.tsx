@@ -1,25 +1,42 @@
-import { motion } from 'framer-motion'
+import { Canvas } from '@react-three/fiber'
 import { useRouter } from 'next/router'
-import Card from '../Card'
 import Navbar from '../Navbar'
+import Social from '../Social'
+import MyCanvas from '../three/MyCanvas'
 
 const IndexLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter()
+
   return (
-    <div className=" min-h-screen bg-lightShades">
+    <div className='min-h-screen bg-lightShades'>
       <Navbar />
-      <div className=" mx-2 mt-28 flex flex-col items-center justify-center sm:flex-row">
-        <Card
-          description="lorem jahsdlfikjuuasdlfikjhalksdjfhalsduif asdf asd  asdfasdfasdff uaflsdif asdliuf"
-          className=" mb-4 sm:mb-0 sm:mr-14"
-          title=" template title"
-        />
-        <Card
-          description="lorem jahsdlfikjuuasdlfikjhalksdjfhalsduif asdf asd  asdfasdfasdff uaflsdif asdliuf"
-          title=" template title"
-        />
+      <div className='absolute top-0 z-10 h-20 w-full transform bg-lightShades'></div>
+      <div className='absolute right-0 z-10 h-full w-10 transform bg-lightShades'></div>
+      <div className='absolute bottom-0 z-10 h-10 w-full transform bg-lightShades'></div>
+      <div className='flex '>
+        <Canvas
+          orthographic
+          camera={{ zoom:150}}
+          shadows
+          style={{
+            width: '55%',
+            height: '100%',
+            background: '',
+            display: 'block',
+            position: 'absolute',
+            right: 0,
+            top: 0,
+          }}
+        >
+          <MyCanvas routerPath={router.pathname} />
+        </Canvas>
       </div>
-      <main className=" flex flex-col items-center">{children}</main>
+      <div className='mt-5 flex w-[45%] flex-col'>
+        <main className='mx-4 flex max-h-[1100px] flex-col items-center overflow-y-auto'>
+          {children}
+        </main>
+        <Social />
+      </div>
     </div>
   )
 }

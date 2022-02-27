@@ -15,8 +15,7 @@ const IndexLayout = ({ children }: { children: React.ReactNode }) => {
       <div className='absolute bottom-0 z-10 h-10 w-full transform bg-lightShades'></div>
       <div className='flex '>
         <Canvas
-          orthographic
-          camera={{ zoom:150}}
+          camera={{ fov: 25 }}
           shadows
           style={{
             width: '55%',

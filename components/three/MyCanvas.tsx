@@ -11,7 +11,7 @@ const MyCanvas = ({ routerPath }: { routerPath: string }) => {
 
   camera.near = 1
   camera.far = 1000
-  camera.position.set(-2, 2, 2)
+  camera.position.set(-10, 10, 10)
   camera.rotation.order = 'YXZ'
   camera.rotation.y = -Math.PI / 4
   camera.rotation.x = Math.atan(-1 / Math.sqrt(2))
@@ -21,8 +21,18 @@ const MyCanvas = ({ routerPath }: { routerPath: string }) => {
     camera.position.y,
     camera.position.z
   )
+  const projectPagePosition = new Vector3(
+    defaultPosition.x,
+    defaultPosition.y + 6,
+    defaultPosition.z + 6
+  )
   useFrame((state, delta) => {
-    camera.position.lerp(defaultPosition, 0.05)
+    let currentPosition =
+      routerPath.indexOf('projects') >= 0
+        ? projectPagePosition
+        : defaultPosition
+
+    //camera.position.lerp(currentPosition, 0.05)
   })
 
   /*gl.shadowMap.enabled = true

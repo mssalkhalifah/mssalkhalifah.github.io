@@ -1,7 +1,9 @@
 import { Html } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useEffect, useRef, useState } from 'react'
+import { Vector3 } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import MyRectangleLight from './MyRectangleLight'
 
 const Model = ({
   routePath,
@@ -11,7 +13,9 @@ const Model = ({
   props?: JSX.IntrinsicElements['group']
 }) => {
   const group = useRef<THREE.Group>()
+  const projectGroup = useRef<THREE.Group>()
   const [mainModel, setMainModel] = useState<THREE.Object3D[] | null>(null)
+  const [projectModel, setprojectModel] = useState<THREE.Object3D[] | null>(null)
 
   useEffect(() => {
     const loader = new GLTFLoader()
@@ -21,15 +25,23 @@ const Model = ({
       )) as THREE.Object3D[]
       //const materials = await glb.parser.getDependencies('material')
       //const animations = await glb.parser.getDependencies('animation')
+      console.log('Nodes: ', nodes)
+      console.log(nodes.find((node) => node.name == 'Project_room'))
 
       setMainModel(nodes)
     })
-  })
+  }, [])
 
   useFrame((state, delta) => {
     const mainModel = group.current
-    if (mainModel) {
-      //mainModel.position.set(0, -2, 0)
+    if (mainModel && routePath) {
+      let currentPosition =
+        routePath.indexOf('projects') >= 0 ? [-4, -2, 0] : [0, -2, 0]
+
+      mainModel.position.lerp(
+        new Vector3(currentPosition[0], currentPosition[1], currentPosition[2]),
+        0.05
+      )
     }
   })
 
@@ -41,6 +53,17 @@ const Model = ({
             {mainModel.map((model) => (
               <primitive ref={group} name={model.name} object={model} />
             ))}
+            <MyRectangleLight
+              helper
+              helperColor='red'
+              props={{
+                position: [0, 3.78, -1.85],
+                height: 0.1,
+                width: 3.8,
+                rotation: [-Math.PI / 2, 0, 0],
+                power: 20
+              }}
+            />
           </group>
         </>
       ) : (

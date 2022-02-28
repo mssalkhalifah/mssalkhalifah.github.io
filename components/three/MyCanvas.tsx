@@ -1,49 +1,83 @@
 import { OrbitControls } from '@react-three/drei'
 import { Canvas, useThree, useFrame } from '@react-three/fiber'
+import * as TWEEN from '@tweenjs/tween.js'
+import { useEffect, useState } from 'react'
 import { Vector3 } from 'three'
 import Lights from './Lights'
 import Model from './Model'
 import Office from './Office'
 import Stairs from './Staris'
 
+function lerp(start: number, end: number, amt: number) {
+  return (1 - amt) * start + amt * end
+}
+
+interface Position {
+  x: number
+  y: number
+  z: number
+  lookAt: {
+    x: number
+    y: number
+    z: number
+  }
+}
+
+interface CameraMovement {
+  position: Vector3
+  lookAt: Vector3
+}
+
 const MyCanvas = ({ routerPath }: { routerPath: string }) => {
-  const { camera, gl } = useThree()
+  const { camera } = useThree()
+  const [currentPosition] = useState<CameraMovement>({
+    position: new Vector3(-10, 10, 10),
+    lookAt: new Vector3(0, 0, 0),
+  })
 
   camera.near = 1
   camera.far = 1000
-  camera.position.set(-10, 10, 10)
-  camera.rotation.order = 'YXZ'
-  camera.rotation.y = -Math.PI / 4
-  camera.rotation.x = Math.atan(-1 / Math.sqrt(2))
 
-  const defaultPosition = new Vector3(
-    camera.position.x,
-    camera.position.y,
-    camera.position.z
-  )
-  const projectPagePosition = new Vector3(
-    defaultPosition.x,
-    defaultPosition.y + 6,
-    defaultPosition.z + 6
-  )
+  const defaultPosition = {
+    position: new Vector3(-10, 10, 10),
+    lookAt: new Vector3(0, 0, 0),
+  }
+  const projectPagePosition = {
+    position: new Vector3(-4, 16, 16),
+    lookAt: new Vector3(5, 0, 0),
+  }
+  useEffect(() => {
+    let nextPosition: CameraMovement
+    switch (routerPath.trim().split('/')[1]) {
+      case 'projects':
+        nextPosition = projectPagePosition
+        break
+      default:
+        nextPosition = defaultPosition
+        break
+    }
+    new TWEEN.Tween(currentPosition)
+      .to(nextPosition, 800)
+      .onUpdate((position) => {
+        currentPosition.position = position.position
+        currentPosition.lookAt = position.lookAt
+        camera.position.set(
+          currentPosition.position.x,
+          currentPosition.position.y,
+          currentPosition.position.z
+        )
+        camera.lookAt(currentPosition.lookAt)
+      })
+      .start()
+  }, [routerPath])
   useFrame((state, delta) => {
-    let currentPosition =
-      routerPath.indexOf('projects') >= 0
-        ? projectPagePosition
-        : defaultPosition
-
-    //camera.position.lerp(currentPosition, 0.05)
+    TWEEN.update()
   })
 
-  /*gl.shadowMap.enabled = true
-  gl.shadowMap.type = PCFSoftShadowMap
-  gl.physicallyCorrectLights = true
-  gl.outputEncoding = sRGBEncoding
-  gl.pixelRatio = window.devicePixelRatio*/
   return (
     <>
       <Lights />
-      <OrbitControls />
+      <gridHelper />
       <Model routePath={routerPath} props={{ position: [0, -2, 0] }} />
     </>
   )

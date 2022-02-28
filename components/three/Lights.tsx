@@ -12,12 +12,12 @@ const Lights = () => {
   useHelper(directionalLight, DirectionalLightHelper, 1, 'red')
   return (
     <>
-      <ambientLight intensity={0.2} />
+      <ambientLight intensity={0.7} />
       <directionalLight
         ref={directionalLight}
         position={[-1, 1, 1]}
         castShadow
-        intensity={1.2}
+        intensity={0.2}
       />
     </>
   )

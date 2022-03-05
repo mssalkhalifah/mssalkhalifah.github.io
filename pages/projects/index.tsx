@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import Head from 'next/head'
-import React, { ReactElement } from 'react'
+import { ReactElement } from 'react'
 import Card from '../../components/Card'
 import IndexLayout from '../../components/layouts/IndexLayout'
 import ProjectPageLayout from '../../components/layouts/projects/ProjectPageLayout'

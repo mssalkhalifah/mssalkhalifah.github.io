@@ -1,17 +1,8 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import Navbar from '../components/Navbar'
-import Card from '../components/Card'
 import { NextPage } from 'next'
 import { ReactElement, ReactNode } from 'react'
-import { motion } from 'framer-motion'
 import AppContext from '../components/context/AppContext'
-
-type ComponentsWithPageLayout = AppProps & {
-  Component: AppProps['Component'] & {
-    PageLayout?: React.ComponentType
-  }
-}
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode

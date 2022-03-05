@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { MutableRefObject, useState } from 'react'
 
 const Dropdown = ({
   dropdownItems,
@@ -16,7 +15,7 @@ const Dropdown = ({
     >
       {dropdownItems
         ? Object.keys(dropdownItems).map((key) => (
-            <DropdownItem text={key} link={dropdownItems[key]} />
+            <DropdownItem key={key} text={key} link={dropdownItems[key]} />
           ))
         : {}}
     </div>
@@ -26,7 +25,7 @@ const Dropdown = ({
 const DropdownItem = ({ text, link }: { text?: string; link?: string }) => {
   return (
     <Link href={link ? link : '#'}>
-      <a className=" mx-1 rounded-lg px-1 py-2 transition-colors duration-100 hover:rounded-lg hover:bg-primary hover:text-lightShades hover:shadow-md">
+      <a className=' mx-1 rounded-lg px-1 py-2 transition-colors duration-100 hover:rounded-lg hover:bg-primary hover:text-lightShades hover:shadow-md'>
         {text}
       </a>
     </Link>

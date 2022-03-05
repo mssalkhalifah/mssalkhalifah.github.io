@@ -55,7 +55,7 @@ const Card = ({ image, description, title, className, link }: CardProps) => {
           isHoverable ? 'cursor-pointer' : 'pointer-events-none cursor-default'
         }`}
       >
-        <Link scroll={false} href={currentLink}>
+        <Link scroll={false} href={currentLink} passHref>
           <Image
             src={`${image ? image : '/placeholder_1280_720.jpg'}`}
             placeholder='blur'
@@ -86,7 +86,7 @@ const Card = ({ image, description, title, className, link }: CardProps) => {
 
       <AnimatePresence>
         {
-          <Link scroll={false} href={currentLink}>
+          <Link scroll={false} href={currentLink} passHref>
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.9 }}

@@ -97,14 +97,6 @@ const ProjectPage = () => {
   )
 }
 
-const GridItem = ({
-  href,
-  description,
-}: {
-  href: string
-  description: string
-}) => {}
-
 ProjectPage.getLayout = (page: ReactElement) => {
   return (
     <IndexLayout>

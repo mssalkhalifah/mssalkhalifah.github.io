@@ -1,8 +1,7 @@
-import { Html, useHelper } from '@react-three/drei'
+import { Html } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useEffect, useRef, useState } from 'react'
-import { Mesh, PointLightHelper } from 'three'
-import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper'
+import THREE, { AnimationMixer, LoopOnce, Mesh, PointLightHelper } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import MyRectangleLight from './MyRectangleLight'
 
@@ -16,19 +15,21 @@ const Model = ({
   const light = useRef()
   //useHelper(light, PointLightHelper, 1, 'red')
   const group = useRef<THREE.Group>()
-  const projectGroup = useRef<THREE.Group>()
   const [mainModel, setMainModel] = useState<THREE.Object3D[] | null>(null)
-  const [projectModel, setprojectModel] = useState<THREE.Object3D[] | null>(
+  const [mixers, setMixers] = useState<THREE.AnimationMixer[] | null>(null)
+  const [nodes, setNodes] = useState<Mesh[] | null>(null)
+  const [playedAnimations] = useState<boolean[]>([false])
+  const [animations, setAnimations] = useState<THREE.AnimationClip[] | null>(
     null
   )
 
   useEffect(() => {
     const loader = new GLTFLoader()
-    loader.load('office6.glb', async (glb) => {
+    loader.load('office_test.glb', async (glb) => {
       const nodes = await glb.parser.getDependencies('node')
-      //const materials = await glb.parser.getDependencies('material')
-      //const animations = await glb.parser.getDependencies('animation')
+      const animations = await glb.parser.getDependencies('animation')
       console.log('Nodes: ', nodes)
+      console.log('Animations: ', animations)
       console.log(nodes.find((node) => node.name == 'Project_room'))
 
       nodes.forEach((node) => {
@@ -36,9 +37,9 @@ const Model = ({
           node.name == 'marble_room_wall' ||
           node.name == 'marble_room_floor'
         ) {
-          node.receiveShadow = true
+          //node.receiveShadow = true
         } else {
-          node.castShadow = true
+          //node.castShadow = true
         }
       })
 
@@ -49,20 +50,49 @@ const Model = ({
             child.name == 'Project_room003' ||
             child.name == 'Project_room003_4'
           ) {
-            child.receiveShadow = true
+            //child.receiveShadow = true
           } else {
-            child.castShadow = true
+            //child.castShadow = true
           }
         })
 
+      setNodes(nodes)
+      setAnimations(animations)
       setMainModel(nodes)
     })
   }, [])
 
-  useFrame((state, delta) => {
-    const mainModel = group.current
-    if (mainModel) {
+  useEffect(() => {
+    if (animations && nodes) {
+      switch (routePath?.trim().split('/')[1]) {
+        case 'projects':
+          if (!playedAnimations[0]) {
+            const projectRoomAnimations = animations.filter((animation) =>
+              animation.name.includes('Project')
+            )
+            const projectRoomMixer = nodes
+              .filter((node) => node.name.includes('Project'))
+              .map((node) => new AnimationMixer(node))
+
+            setMixers(projectRoomMixer)
+            projectRoomAnimations.forEach((animation, i = 0) => {
+              const animate = projectRoomMixer[i].clipAction(animation)
+              animate.setLoop(LoopOnce, 1)
+              animate.clampWhenFinished = true
+              animate.play()
+            })
+            playedAnimations[0] = true
+          }
+          break
+
+        default:
+          break
+      }
     }
+  }, [routePath])
+
+  useFrame((state, delta) => {
+    if (mixers) mixers.forEach((mixer) => mixer.update(delta))
   })
 
   return (
@@ -71,12 +101,17 @@ const Model = ({
         <>
           <group ref={group} {...props}>
             {mainModel.map((model) => (
-              <primitive ref={group} name={model.name} object={model} />
+              <primitive
+                key={model.name}
+                ref={group}
+                name={model.name}
+                object={model}
+              />
             ))}
             <pointLight
               ref={light}
               position={[1, 4, -1]}
-              power={5}
+              power={0}
               castShadow
             />
             <MyRectangleLight
@@ -86,7 +121,7 @@ const Model = ({
                 height: 0.1,
                 width: 3.8,
                 rotation: [-Math.PI / 2, 0, 0],
-                power: 20,
+                power: 0,
               }}
             />
             <MyRectangleLight

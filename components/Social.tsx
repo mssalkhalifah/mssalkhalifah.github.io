@@ -4,7 +4,7 @@ import Header from './Header'
 
 const Social = () => {
   return (
-    <div className='mb-8 flex flex-col place-items-center'>
+    <div className='flex flex-col place-items-center pb-6'>
       <div className=''>
         <Header>
           Social <TiSocialAtCircular className=' ml-2' />
@@ -16,6 +16,7 @@ const Social = () => {
           href='https://github.com/mssalkhalifah'
           target='_blank'
           className=' transition-color rounded-full bg-primary p-2 shadow-md hover:bg-info'
+          rel='noreferrer'
         >
           <IoLogoGithub className=' text-lightShades' />
         </a>
@@ -24,6 +25,7 @@ const Social = () => {
           href='https://linkedin.com/in/mssalkhalifah'
           target='_blank'
           className=' rounded-full bg-primary p-2 shadow-md transition-colors hover:bg-info'
+          rel='noreferrer'
         >
           <IoLogoLinkedin className='  text-lightShades' />
         </a>

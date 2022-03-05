@@ -5,7 +5,6 @@ import {
   AnimationClip,
   AnimationMixer,
   LoopOnce,
-  Object3D,
   PointLightHelper,
   Vector3,
 } from 'three'
@@ -113,7 +112,7 @@ const Office = ({
               height={0.1}
               intensity={1}
               ref={rectAreaLightRef}
-              color='white'
+              color="white"
               power={30}
             />
             {models.map((model) => (

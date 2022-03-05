@@ -10,21 +10,20 @@ const ProjectPage = () => {
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      className=' flex flex-col items-center justify-center'
+      className=' flex flex-col items-center justify-center justify-self-center '
     >
       <Head>
         <title>My Portfolio</title>
         <meta charSet='UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <meta http-equiv='X-UA-Compatible' content='ie=edge'></meta>
+        <meta httpEquiv='X-UA-Compatible' content='ie=edge'></meta>
       </Head>
-      <div className='mb-10 max-w-3xl flex flex-col overflow-x-auto'>
+      <div className='mb-10 flex max-w-3xl flex-col overflow-x-auto'>
         <div className=' flex flex-row p-2'>
           <GridItem />
           <GridItem />
         </div>
-        <div className='flex-row flex p-2'>
-        </div>
+        <div className='flex flex-row p-2'></div>
       </div>
     </motion.div>
   )

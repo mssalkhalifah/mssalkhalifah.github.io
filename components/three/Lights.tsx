@@ -1,23 +1,16 @@
-import { useHelper } from '@react-three/drei'
-import { useRef, useState } from 'react'
-import {
-  DirectionalLightHelper,
-  PointLightHelper,
-  PointLightShadow,
-  SpotLightHelper,
-} from 'three'
+import { useRef } from 'react'
 
 const Lights = () => {
   const directionalLight = useRef()
-  useHelper(directionalLight, DirectionalLightHelper, 1, 'red')
+  //useHelper(directionalLight, DirectionalLightHelper, 1, 'red')
   return (
     <>
-      <ambientLight intensity={0.7} />
+      <ambientLight intensity={1} />
       <directionalLight
         ref={directionalLight}
         position={[-1, 1, 1]}
         castShadow
-        intensity={0.2}
+        intensity={0}
       />
     </>
   )

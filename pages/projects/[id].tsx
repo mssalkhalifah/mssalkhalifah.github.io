@@ -18,7 +18,7 @@ const ProjectPage = () => {
         pageAnimation: { opacity: 1, x: 0 },
       }}
     >
-      <main className=' mx-2 mt-2 mb-10 grid max-w-3xl '>
+      <main className='  grid max-w-3xl '>
         <Link href={'/projects'} scroll={false}>
           <a className=' my-2 flex items-center place-self-start rounded-full bg-primary py-2 px-8 text-lightShades hover:bg-info'>
             <IoArrowForward className=' mr-2 rotate-180' /> Back

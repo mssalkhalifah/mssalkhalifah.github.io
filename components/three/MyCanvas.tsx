@@ -1,27 +1,9 @@
-import { OrbitControls } from '@react-three/drei'
-import { Canvas, useThree, useFrame } from '@react-three/fiber'
+import { useThree, useFrame } from '@react-three/fiber'
 import * as TWEEN from '@tweenjs/tween.js'
 import { useEffect, useState } from 'react'
 import { Vector3 } from 'three'
 import Lights from './Lights'
 import Model from './Model'
-import Office from './Office'
-import Stairs from './Staris'
-
-function lerp(start: number, end: number, amt: number) {
-  return (1 - amt) * start + amt * end
-}
-
-interface Position {
-  x: number
-  y: number
-  z: number
-  lookAt: {
-    x: number
-    y: number
-    z: number
-  }
-}
 
 interface CameraMovement {
   position: Vector3
@@ -70,14 +52,14 @@ const MyCanvas = ({ routerPath }: { routerPath: string }) => {
       })
       .start()
   }, [routerPath])
-  useFrame((state, delta) => {
+
+  useFrame(() => {
     TWEEN.update()
   })
 
   return (
     <>
       <Lights />
-      <gridHelper />
       <Model routePath={routerPath} props={{ position: [0, -2, 0] }} />
     </>
   )

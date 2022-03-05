@@ -1,9 +1,7 @@
 import { AnimatePresence, motion, useAnimation } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useLayoutEffect, useState } from 'react'
-import { useRef } from 'react'
-import { IoArrowForwardCircleOutline } from 'react-icons/io5'
+import React, { useEffect, useState } from 'react'
 import useWindowSize from './hooks/useWindowResize'
 
 interface CardProps {
@@ -14,7 +12,6 @@ interface CardProps {
   link?: string
 }
 
-
 const Card = ({ image, description, title, className, link }: CardProps) => {
   const currentLink = link ? link : ''
   const windowSize = useWindowSize()
@@ -23,7 +20,7 @@ const Card = ({ image, description, title, className, link }: CardProps) => {
   const [isHoverable, setHoverable] = useState(true)
   const cardHoverVariant = {
     hover: { y: isHoverable ? -4 : 0 },
-    height: { maxHeight: isHoverable ? '400px' : '500px' }
+    height: { maxHeight: isHoverable ? '400px' : '500px' },
   }
 
   useEffect(() => {
@@ -35,12 +32,12 @@ const Card = ({ image, description, title, className, link }: CardProps) => {
     if (!isHoverable) {
       animate.start({
         maxHeight: 500,
-        transition: { duration: 0.5 }
+        transition: { duration: 0.5 },
       })
     } else {
       animate.start({
         maxHeight: 350,
-        transition: { duration: 0.5 }
+        transition: { duration: 0.5 },
       })
     }
   }, [windowSize, isHoverable])
@@ -53,14 +50,18 @@ const Card = ({ image, description, title, className, link }: CardProps) => {
       variants={cardHoverVariant}
       className={`${className} max-w-sm overflow-hidden rounded-lg bg-lightShades shadow-lg`}
     >
-      <div className={` w-200 h-full overflow-hidden duration-150 hover:${isHoverable ? 'cursor-pointer' : 'cursor-default pointer-events-none'}`}>
+      <div
+        className={` w-200 h-full overflow-hidden duration-150 hover:${
+          isHoverable ? 'cursor-pointer' : 'pointer-events-none cursor-default'
+        }`}
+      >
         <Link scroll={false} href={currentLink}>
           <Image
             src={`${image ? image : '/placeholder_1280_720.jpg'}`}
-            placeholder="blur"
-            blurDataURL="/placeholder.jpg"
-            width="426"
-            height="240"
+            placeholder='blur'
+            blurDataURL='/placeholder.jpg'
+            width='426'
+            height='240'
             className={`${isLoaded ? ' animate-unblur' : ''}`}
             onLoadingComplete={() => setLoading(false)}
             onLoad={() => setLoading(true)}
@@ -68,27 +69,38 @@ const Card = ({ image, description, title, className, link }: CardProps) => {
         </Link>
       </div>
 
-      <div className="px-6 py-4">
+      <div className='px-6 py-4'>
         <Link scroll={false} href={currentLink}>
-          <a className={`mb-2 self-center justify-center flex text-xl font-bold hover:${isHoverable ? 'cursor-pointer' : 'cursor-default pointer-events-none'}`}>{title}</a>
+          <a
+            className={`mb-2 flex justify-center self-center text-xl font-bold hover:${
+              isHoverable
+                ? 'cursor-pointer'
+                : 'pointer-events-none cursor-default'
+            }`}
+          >
+            {title}
+          </a>
         </Link>
-        <p className=" text-base">{description}</p>
+        <p className=' text-base'>{description}</p>
       </div>
 
       <AnimatePresence>
-        {(
+        {
           <Link scroll={false} href={currentLink}>
-            <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} initial={false} animate={{ scale: isHoverable ? 0 : 1 }} className=' flex items-center m-4 rounded-md justify-center bg-primary text-lightShades hover:cursor-pointer sm:scale-0 shadow-md'>
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.9 }}
+              initial={false}
+              animate={{ scale: isHoverable ? 0 : 1 }}
+              className=' m-4 flex items-center justify-center rounded-md bg-primary text-lightShades shadow-md hover:cursor-pointer sm:scale-0'
+            >
               Check it out
             </motion.a>
-          </Link>)}
+          </Link>
+        }
       </AnimatePresence>
-
     </motion.div>
   )
 }
-
-const largeImage =
-  'https://effigis.com/wp-content/uploads/2015/02/Airbus_Pleiades_50cm_8bit_RGB_Yogyakarta.jpg'
 
 export default Card

@@ -3,13 +3,7 @@ import GridTable from '../components/GridTable'
 import Header from '../components/Header'
 import Paragraph from '../components/Paragraph'
 import Profile from '../components/Profile'
-import {
-  IoSchoolOutline,
-  IoHeart,
-  IoLogoGithub,
-  IoLogoLinkedin,
-} from 'react-icons/io5'
-import { TiSocialAtCircular } from 'react-icons/ti'
+import { IoSchoolOutline, IoHeart } from 'react-icons/io5'
 import IndexLayout from '../components/layouts/IndexLayout'
 import { ReactElement } from 'react'
 import { motion } from 'framer-motion'
@@ -18,7 +12,7 @@ import Card from '../components/Card'
 export default function Home() {
   return (
     <motion.div
-      className=' mt-16 flex flex-col'
+      className=' mt-10 flex w-full flex-col'
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
     >
@@ -26,23 +20,23 @@ export default function Home() {
         <title>My Portfolio</title>
         <meta charSet='UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <meta http-equiv='X-UA-Compatible' content='ie=edge'></meta>
+        <meta httpEquiv='X-UA-Compatible' content='ie=edge'></meta>
       </Head>
       <div className=' flex flex-col'>
-        <div className='mx-2 flex flex-col items-center justify-center 2xl:flex-row'>
+        <Profile />
+        <div className='mx-2 mt-4 flex flex-col items-center justify-center md:flex-row'>
           <Card
             description='lorem jahsdlfikjuuasdlfikjhalksdjfhalsduif asdf asd  asdfasdfasdff uaflsdif asdliuf'
-            className=' mb-4 self-center 2xl:mx-2'
+            className='mx-2 mb-10 self-center md:mb-0'
             title=' template title'
           />
           <Card
             description='lorem jahsdlfikjuuasdlfikjhalksdjfhalsduif asdf asd  asdfasdfasdff uaflsdif asdliuf'
             title=' template title'
-            className=' mb-4 self-center 2xl:mx-2'
+            className='mx-2 self-center'
           />
         </div>
-        <Profile />
-        <div className='grid max-w-3xl grid-rows-3 2xl:grid-cols-2 2xl:grid-rows-1 '>
+        <div className='grid max-w-2xl grid-rows-3 self-center 2xl:grid-cols-2 2xl:grid-rows-1 '>
           <div className='flex flex-col items-center justify-center p-4'>
             <Header>What I do</Header>
             <Paragraph>
@@ -63,14 +57,14 @@ export default function Home() {
                   ['2018', 'contentasccc'],
                   [
                     '2019',
-                    <p className=' flex items-center'>
+                    <p className=' flex items-center' key={0}>
                       <IoSchoolOutline className=' mr-4' />
                       Imam Mohammad Ibn Saud Islamic University
                     </p>,
                   ],
                   [
                     '2020',
-                    <p>
+                    <p key={1}>
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                       Nam eos optio alias?
                     </p>,

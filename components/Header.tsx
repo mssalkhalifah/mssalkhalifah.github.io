@@ -5,8 +5,8 @@ interface HeaderProps {
 
 const Header = ({ children, className }: HeaderProps) => {
   return (
-    <div className={className ? className : ' mt- mb-4 text-lg font-bold'}>
-      <code className="flex items-center">
+    <div className={className ? className : ' mb-3 text-lg font-bold'}>
+      <code className='flex items-center'>
         &#60;
         {children}
         /&#62;

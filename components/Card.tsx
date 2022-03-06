@@ -13,6 +13,14 @@ interface CardProps {
 }
 
 const Card = ({ image, description, title, className, link }: CardProps) => {
+  const imageSource = {
+    url: image
+      ? image
+      : 'https://res.cloudinary.com/domq50ciy/image/upload/v1646564348/protfolio/placeholder_1280_720_idtgoz.jpg',
+    blurImg: image
+      ? image
+      : 'https://res.cloudinary.com/domq50ciy/image/upload/q_1/v1646564348/protfolio/placeholder_1280_720_idtgoz.jpg',
+  }
   const currentLink = link ? link : ''
   const windowSize = useWindowSize()
   const animate = useAnimation()
@@ -57,9 +65,8 @@ const Card = ({ image, description, title, className, link }: CardProps) => {
       >
         <Link scroll={false} href={currentLink} passHref>
           <Image
-            src={`${image ? image : '/placeholder_1280_720.jpg'}`}
-            placeholder='blur'
-            blurDataURL='/placeholder.jpg'
+            src={imageSource.url}
+            blurDataURL={imageSource.blurImg}
             width='426'
             height='240'
             className={`${isLoaded ? ' animate-unblur' : ''}`}

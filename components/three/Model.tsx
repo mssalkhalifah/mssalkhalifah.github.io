@@ -91,7 +91,7 @@ const Model = ({
     }
   }, [routePath])
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (mixers) mixers.forEach((mixer) => mixer.update(delta))
   })
 

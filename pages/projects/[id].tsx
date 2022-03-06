@@ -8,7 +8,15 @@ import ProjectDetailsLayout from '../../components/layouts/projects/ProjectDetai
 import ProjectPageLayout from '../../components/layouts/projects/ProjectPageLayout'
 import { IoArrowForward } from 'react-icons/io5'
 
-const ProjectPage = () => {
+const ProjectPage = ({ image }: { image?: string }) => {
+  const imageSource = {
+    url: image
+      ? image
+      : 'https://res.cloudinary.com/domq50ciy/image/upload/v1646564348/protfolio/placeholder_1280_720_idtgoz.jpg',
+    blurImg: image
+      ? image
+      : 'https://res.cloudinary.com/domq50ciy/image/upload/q_1/v1646564348/protfolio/placeholder_1280_720_idtgoz.jpg',
+  }
   return (
     <motion.div
       initial='pageInitial'
@@ -26,9 +34,9 @@ const ProjectPage = () => {
         </Link>
         <div className=' relative max-w-xl place-self-center'>
           <Image
-            src='/placeholder_1280_720.jpg'
+            src={imageSource.url}
             placeholder='blur'
-            blurDataURL='/placeholder.jpg'
+            blurDataURL={imageSource.blurImg}
             width='1280'
             height='720'
             className=' rounded-lg'

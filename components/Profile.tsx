@@ -5,11 +5,9 @@ const Profile = () => {
     <div className='mb-4 flex flex-col items-center justify-center sm:flex-row'>
       <div className='flex justify-center overflow-hidden rounded-full border-2 border-info'>
         <Image
-          src={
-            'https://res.cloudinary.com/domq50ciy/image/upload/v1646565441/protfolio/60398196_tyxwk5.jpg'
-          }
+          src={'protfolio/60398196_tyxwk5.jpg'}
           placeholder='blur'
-          blurDataURL='https://res.cloudinary.com/domq50ciy/image/upload/q_1/v1646565441/protfolio/60398196_tyxwk5.jpg'
+          blurDataURL='q_1/v1646565441/protfolio/60398196_tyxwk5.jpg'
           height={150}
           width={150}
         />

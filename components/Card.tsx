@@ -14,12 +14,8 @@ interface CardProps {
 
 const Card = ({ image, description, title, className, link }: CardProps) => {
   const imageSource = {
-    url: image
-      ? image
-      : 'https://res.cloudinary.com/domq50ciy/image/upload/v1646564348/protfolio/placeholder_1280_720_idtgoz.jpg',
-    blurImg: image
-      ? image
-      : 'https://res.cloudinary.com/domq50ciy/image/upload/q_1/v1646564348/protfolio/placeholder_1280_720_idtgoz.jpg',
+    url: image ? image : 'protfolio/placeholder_1280_720_idtgoz.jpg',
+    blurImg: image ? image : 'q_1/protfolio/placeholder_1280_720_idtgoz.jpg',
   }
   const currentLink = link ? link : ''
   const windowSize = useWindowSize()

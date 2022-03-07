@@ -121,7 +121,7 @@ const Model = ({
                 height: 0.1,
                 width: 3.8,
                 rotation: [-Math.PI / 2, 0, 0],
-                power: 0,
+                power: 20,
               }}
             />
             <MyRectangleLight

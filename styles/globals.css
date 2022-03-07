@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#MyCanvas::after {
+  content: '';
+  background: black;
+  width: 500px;
+  height: 500px;
+  z-index: 100;
+}

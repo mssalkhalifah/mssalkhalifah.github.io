@@ -34,7 +34,7 @@ const IndexLayout = ({ children }: { children: React.ReactNode }) => {
     <div className='min-h-screen bg-lightShades'>
       <Navbar />
       <div className='flex h-screen flex-col items-center overflow-y-auto overflow-x-hidden xl:flex-row xl:items-baseline'>
-        <div className='w-full xl:w-[55%]'>
+        <div className='w-full after:z-20 after:flex after:h-10 after:w-full after:bg-lightShades after:blur-lg xl:w-[55%] after:xl:hidden'>
           <div className='absolute left-0 z-10 hidden h-full w-10 transform bg-lightShades xl:block'></div>
           <Canvas
             camera={{ fov: 25 }}

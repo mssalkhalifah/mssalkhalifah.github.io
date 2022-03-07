@@ -18,12 +18,16 @@ const ProjectPage = () => {
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <meta httpEquiv='X-UA-Compatible' content='ie=edge'></meta>
       </Head>
-      <div className='mb-10 flex max-w-3xl flex-col overflow-x-auto'>
-        <div className=' flex flex-row p-2'>
-          <GridItem />
-          <GridItem />
-        </div>
-        <div className='flex flex-row p-2'></div>
+      <div className='grid lg:grid-cols-2'>
+        <GridItem />
+        <GridItem />
+        <GridItem />
+        <GridItem />
+        <GridItem />
+        <GridItem />
+        <GridItem />
+        <GridItem />
+        <GridItem />
       </div>
     </motion.div>
   )
@@ -31,7 +35,7 @@ const ProjectPage = () => {
 
 const GridItem = () => {
   return (
-    <div className='p-2'>
+    <div className='mx-4 py-2'>
       <Card
         title='Template'
         link='/projects/2'

@@ -39,14 +39,14 @@ const ProjectPage = ({ image }: { image?: string }) => {
           />
         </div>
         <div className=' mx-2 flex flex-col'>
-          <div className=' grid grid-rows-1 sm:grid-cols-2'>
-            <Header className=' mt-4 mb-2 hidden self-center justify-self-center text-xl font-bold sm:flex'>
+          <div className=' grid md:grid-cols-2'>
+            <Header className='row-start-1 mt-4 mb-2 hidden self-center justify-self-center text-xl font-bold sm:flex'>
               Description
             </Header>
-            <Header className=' mt-4 mb-2 self-center justify-self-center text-xl font-bold'>
+            <Header className='row-start-3 mt-4 mb-2 self-center justify-self-center text-xl font-bold md:row-start-1'>
               Stack
             </Header>
-            <div className='m-4 flex flex-col self-center'>
+            <div className='row-start-2 m-4 flex flex-col self-center'>
               <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis
                 quas, accusantium ratione obcaecati, qui tenetur nulla velit

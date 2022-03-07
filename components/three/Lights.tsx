@@ -6,12 +6,6 @@ const Lights = () => {
   return (
     <>
       <ambientLight intensity={1} />
-      <directionalLight
-        ref={directionalLight}
-        position={[-1, 1, 1]}
-        castShadow
-        intensity={0}
-      />
     </>
   )
 }

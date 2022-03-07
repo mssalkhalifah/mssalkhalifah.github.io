@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -5,15 +6,15 @@ module.exports = {
   ],
   theme: {
     colors: {
-      lightShades: '#ECEBEA',
-      lightAccent: '#8896A3',
-      mainColor: '#646571',
-      darkAccent: '#6879A7',
-      darkShades: '#1D252C',
-      primary: '#646571',
-      info: '#1d252c',
-      success: '#53995a',
-      warning: '#d18922',
+      lightShades: '#F9F5D7',
+      lightAccent: '#8B9FA1',
+      mainColor: '#B7845B',
+      darkAccent: '#867664',
+      darkShades: '#1D2021',
+      primary: '#b7845b',
+      info: '#1e2123',
+      success: '#6ca253',
+      warning: '#e9921b',
       danger: '#f44336',
     },
     extend: {
@@ -22,7 +23,7 @@ module.exports = {
         '50%': 'repeat(4, 50%)',
       },
       gridTemplateRows: {
-        '50%': 'repeat(2, 50%)'
+        '50%': 'repeat(2, 50%)',
       },
       screens: {
         xsm: '290px',

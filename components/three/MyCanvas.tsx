@@ -11,12 +11,13 @@ interface CameraMovement {
 }
 
 const MyCanvas = ({ routerPath }: { routerPath: string }) => {
-  const { camera } = useThree()
+  const { camera, gl } = useThree()
   const [currentPosition] = useState<CameraMovement>({
     position: new Vector3(-10, 10, 10),
     lookAt: new Vector3(0, 0, 0),
   })
 
+  gl.setPixelRatio(window.devicePixelRatio)
   camera.near = 1
   camera.far = 1000
 

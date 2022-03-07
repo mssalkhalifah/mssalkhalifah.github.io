@@ -25,7 +25,7 @@ const Model = ({
 
   useEffect(() => {
     const loader = new GLTFLoader()
-    loader.load('office_test.glb', async (glb) => {
+    loader.load('office_baked.glb', async (glb) => {
       const nodes = await glb.parser.getDependencies('node')
       const animations = await glb.parser.getDependencies('animation')
       console.log('Nodes: ', nodes)
@@ -132,7 +132,7 @@ const Model = ({
                 height: 0.1,
                 width: 4.3,
                 rotation: [-Math.PI / 2, 0, Math.PI / 2],
-                power: 20,
+                power: 0,
               }}
             />
             <MyRectangleLight
@@ -143,7 +143,7 @@ const Model = ({
                 height: 0.1,
                 width: 3.4,
                 rotation: [-Math.PI / 2, 0, 0],
-                power: 20,
+                power: 0,
               }}
             />
           </group>

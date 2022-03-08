@@ -3,10 +3,5 @@ export const PostsPageLayout = ({
 }: {
   children: React.ReactNode
 }) => {
-  return (
-    <div>
-      Posts Page Layout
-      {children}
-    </div>
-  )
+  return <>{children}</>
 }

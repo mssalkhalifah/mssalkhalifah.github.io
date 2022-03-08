@@ -23,9 +23,9 @@ const Navbar = () => {
     const currentRoute = router.pathname.trim().split('/')[1]
     for (const [key, value] of Object.entries(animationControls)) {
       if (key.toString() != currentRoute) {
-        value.start({ borderRadius: 20 })
+        value.start({ borderRadius: 20, backgroundColor: '#b7845b' })
       } else {
-        value.start({ borderRadius: 5 })
+        value.start({ borderRadius: 5, backgroundColor: '#F9F5D7' })
       }
     }
   }, [router])
@@ -35,7 +35,7 @@ const Navbar = () => {
       <div className=' fixed z-50 flex w-screen justify-between bg-mainColor bg-opacity-70 py-2 backdrop-blur'>
         <div className=' ml-4 grid grid-cols-5 items-center text-sm'>
           <Link href='/'>
-            <a className='text-fg m-1 flex items-center font-bold underline hover:text-info'>
+            <a className='m-1 flex items-center font-bold text-darkShades underline hover:text-lightShades'>
               <FiHome className=' mr-1 scale-125' />
               MSSALKHALIFAH
             </a>

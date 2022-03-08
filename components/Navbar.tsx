@@ -8,25 +8,29 @@ import { GoProject } from 'react-icons/go'
 import { BsFilePost } from 'react-icons/bs'
 import { RiContactsLine, RiGithubLine } from 'react-icons/ri'
 import { useRouter } from 'next/router'
-import { useAnimation } from 'framer-motion'
 
 const Navbar = () => {
-  const animationControls = {
-    projects: useAnimation(),
-    posts: useAnimation(),
-    contact: useAnimation(),
-  }
   const [isDropped, setDropdown] = useState(false)
+  const [projectsActive, setProjectsActive] = useState(false)
+  const [postsActive, setPostsActice] = useState(false)
+  const [contactActive, setContactActive] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
     const currentRoute = router.pathname.trim().split('/')[1]
-    for (const [key, value] of Object.entries(animationControls)) {
-      if (key.toString() != currentRoute) {
-        value.start({ borderRadius: 20, backgroundColor: '#b7845b' })
-      } else {
-        value.start({ borderRadius: 5, backgroundColor: '#F9F5D7' })
-      }
+    setProjectsActive(false)
+    setPostsActice(false)
+    setContactActive(false)
+    switch (currentRoute) {
+      case 'projects':
+        setProjectsActive(true)
+        break
+      case 'posts':
+        setPostsActice(true)
+        break
+      case 'contact':
+        setContactActive(true)
+        break
     }
   }, [router])
 
@@ -44,19 +48,19 @@ const Navbar = () => {
             href={'/projects'}
             text={'Projects'}
             icon={<GoProject />}
-            animationControl={animationControls.projects}
+            selected={projectsActive}
           />
           <LinkButton
             href={'/posts'}
             text={'Posts'}
             icon={<BsFilePost />}
-            animationControl={animationControls.posts}
+            selected={postsActive}
           />
           <LinkButton
             href={'/contact'}
             text={'Contact'}
             icon={<RiContactsLine />}
-            animationControl={animationControls.contact}
+            selected={contactActive}
           />
           <LinkButton
             href={

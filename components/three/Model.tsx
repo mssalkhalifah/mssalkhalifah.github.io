@@ -15,6 +15,7 @@ const Model = ({
   const light = useRef()
   //useHelper(light, PointLightHelper, 1, 'red')
   const group = useRef<THREE.Group>()
+  const [loadProgress, setLoadProgress] = useState(0)
   const [mainModel, setMainModel] = useState<THREE.Object3D[] | null>(null)
   const [mixers, setMixers] = useState<THREE.AnimationMixer[] | null>(null)
   const [nodes, setNodes] = useState<Mesh[] | null>(null)
@@ -25,41 +26,45 @@ const Model = ({
 
   useEffect(() => {
     const loader = new GLTFLoader()
-    loader.load('office_baked.glb', async (glb) => {
-      const nodes = await glb.parser.getDependencies('node')
-      const animations = await glb.parser.getDependencies('animation')
-      console.log('Nodes: ', nodes)
-      console.log('Animations: ', animations)
-      console.log(nodes.find((node) => node.name == 'Project_room'))
+    loader.load(
+      'office_baked.glb',
+      async (glb) => {
+        const nodes = await glb.parser.getDependencies('node')
+        const animations = await glb.parser.getDependencies('animation')
+        console.log('Nodes: ', nodes)
+        console.log('Animations: ', animations)
+        console.log(nodes.find((node) => node.name == 'Project_room'))
 
-      nodes.forEach((node) => {
-        if (
-          node.name == 'marble_room_wall' ||
-          node.name == 'marble_room_floor'
-        ) {
-          //node.receiveShadow = true
-        } else {
-          //node.castShadow = true
-        }
-      })
-
-      nodes
-        .find((node) => node.name == 'Project_room')
-        .children.forEach((child: Mesh) => {
+        nodes.forEach((node) => {
           if (
-            child.name == 'Project_room003' ||
-            child.name == 'Project_room003_4'
+            node.name == 'marble_room_wall' ||
+            node.name == 'marble_room_floor'
           ) {
-            //child.receiveShadow = true
+            //node.receiveShadow = true
           } else {
-            //child.castShadow = true
+            //node.castShadow = true
           }
         })
 
-      setNodes(nodes)
-      setAnimations(animations)
-      setMainModel(nodes)
-    })
+        nodes
+          .find((node) => node.name == 'Project_room')
+          .children.forEach((child: Mesh) => {
+            if (
+              child.name == 'Project_room003' ||
+              child.name == 'Project_room003_4'
+            ) {
+              //child.receiveShadow = true
+            } else {
+              //child.castShadow = true
+            }
+          })
+
+        setNodes(nodes)
+        setAnimations(animations)
+        setMainModel(nodes)
+      },
+      (progress) => setLoadProgress((progress.loaded / 10896912) * 100)
+    )
   }, [])
 
   useEffect(() => {
@@ -149,7 +154,16 @@ const Model = ({
           </group>
         </>
       ) : (
-        <Html>Loading...</Html>
+        <Html>
+          <div className='left-0 flex w-28 flex-col items-center justify-center'>
+            <div className='h-2.5 w-full rounded-full bg-darkShades'>
+              <div
+                className='h-2.5 rounded-full bg-primary'
+                style={{ width: `${loadProgress}%` }}
+              ></div>
+            </div>
+          </div>
+        </Html>
       )}
     </>
   )

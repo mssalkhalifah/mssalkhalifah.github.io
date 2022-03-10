@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import GridTable from '../components/GridTable'
 import Header from '../components/Header'
-import Paragraph from '../components/Paragraph'
 import Profile from '../components/Profile'
 import { IoSchoolOutline, IoHeart } from 'react-icons/io5'
+import { HiOutlineDesktopComputer } from 'react-icons/hi'
+import { FaUniversity } from 'react-icons/fa'
 import IndexLayout from '../components/layouts/IndexLayout'
 import { ReactElement } from 'react'
 import { motion } from 'framer-motion'
@@ -27,49 +28,59 @@ export default function Home() {
         <div className='my-4 grid max-w-2xl self-center'>
           <TextBlock header={['What I do', 'Biography']}>
             <p className='row-start-2 mx-2 mb-2 flex flex-col self-center'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-              saepe nobis quia nemo vero, voluptate, magni consequatur quos
-              ducimus ab vitae voluptas aut omnis aliquid at eveniet dolore non?
-              Amet. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Ipsa nam cupiditate quisquam dolores voluptatibus, ut ullam at
-              dolor assumenda! Adipisci voluptatibus quas, itaque placeat beatae
-              qui laboriosam quasi vero doloribus.
+              I am an undergraduate computer science student at Imam Mohammad
+              Ibn Saud Islamic University. I am Saudi. And I am currently live
+              in Riyadh in Saudi Arabia. Also, I can speak three languages. And
+              those are English, Arabic, and Thai. And I like developing tiny
+              demos of games. Furthermore, I have a knack for android
+              applications and currently working on my web development skills.
             </p>
             <GridTable
               content={
                 new Map<string, React.ReactNode | string>([
-                  ['2018', 'contentasccc'],
                   [
-                    '2019',
+                    '2017',
                     <p className=' flex items-center' key={0}>
-                      <IoSchoolOutline className=' mr-4' />
-                      Imam Mohammad Ibn Saud Islamic University
+                      <FaUniversity className='mr-2' />
+                      Finished my preparatory year at Imam Mohammad Ibn Saud
+                      Islamic University.
                     </p>,
                   ],
                   [
-                    '2020',
-                    <p key={1}>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Nam eos optio alias?
+                    '2018',
+                    <p className=' flex items-center' key={1}>
+                      <HiOutlineDesktopComputer className='mr-2' />
+                      Started my computer science bachelor&apos;s degree course.
                     </p>,
                   ],
-                  ['2021', 'contentsdf'],
+                  [
+                    '2021',
+                    <p className=' flex items-center' key={2}>
+                      <IoSchoolOutline className=' mr-2' />
+                      Had an internship at Aramco.
+                    </p>,
+                  ],
                 ])
               }
             />
           </TextBlock>
-          <div className=' flex flex-col items-center justify-center p-4 2xl:col-span-2'>
+          <div className=' flex flex-col items-center justify-center p-4 '>
             <Header>
               What I <IoHeart className=' ml-2' />
             </Header>
-            <p className='row-start-2 mx-2 mb-2 flex flex-col self-center'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-              saepe nobis quia nemo vero, voluptate, magni consequatur quos
-              ducimus ab vitae voluptas aut omnis aliquid at eveniet dolore non?
-              Amet. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Ipsa nam cupiditate quisquam dolores voluptatibus, ut ullam at
-              dolor assumenda! Adipisci voluptatibus quas, itaque placeat beatae
-              qui laboriosam quasi vero doloribus.
+            <p className='row-start-2 mx-2 mb-2 inline self-center'>
+              I love playing video games and building a small demo of them. And
+              I also love rockets and Sci-fi! My favorite space video game is
+              &nbsp;
+              <a
+                className='text-info underline hover:text-mainColor'
+                target='_blank'
+                rel='noreferrer'
+                href='https://www.kerbalspaceprogram.com/'
+              >
+                Kerbal Space Program
+              </a>
+              . &nbsp; And my favorite pass time is reading manga.
             </p>
           </div>
         </div>

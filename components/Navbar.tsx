@@ -8,6 +8,7 @@ import { GoProject } from 'react-icons/go'
 import { BsFilePost } from 'react-icons/bs'
 import { RiContactsLine, RiGithubLine } from 'react-icons/ri'
 import { useRouter } from 'next/router'
+import useComponentVisible from './hooks/useComponentVisible'
 
 const Navbar = () => {
   const [isDropped, setDropdown] = useState(false)
@@ -15,6 +16,7 @@ const Navbar = () => {
   const [postsActive, setPostsActice] = useState(false)
   const [contactActive, setContactActive] = useState(false)
   const router = useRouter()
+  const { ref, isComponentVisible } = useComponentVisible(false)
 
   useEffect(() => {
     const currentRoute = router.pathname.trim().split('/')[1]

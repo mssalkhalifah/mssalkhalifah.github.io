@@ -1,6 +1,21 @@
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 const Profile = () => {
+  const sentence = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.5,
+        staggerChildren: 0.05,
+      },
+    },
+  }
+  const letter = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  }
   return (
     <div className='mb-4 flex flex-col items-center justify-center sm:flex-row'>
       <div className='flex justify-center overflow-hidden rounded-full border-2 border-info'>
@@ -19,7 +34,20 @@ const Profile = () => {
         <h2 className=' text-lg font-semibold'>
           Undergraduate Bachlor Computer Science
         </h2>
-        <p>(temp/temp/tem/temp)</p>
+        <motion.p
+          variants={sentence}
+          initial='hidden'
+          animate='visible'
+          className='rounded-lg bg-darkShades p-1 text-center text-lightShades'
+        >
+          {'Hi! I am currently working on my graduation project. '
+            .split('')
+            .map((char, i) => (
+              <motion.span key={`${char}=${i}`} variants={letter}>
+                {char}
+              </motion.span>
+            ))}
+        </motion.p>
       </div>
     </div>
   )

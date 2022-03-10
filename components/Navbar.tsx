@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { FiSun, FiHome, FiList } from 'react-icons/fi'
 import ActionButton from './ActionButton'
 import Dropdown from './Dropdown'
@@ -8,15 +8,14 @@ import { GoProject } from 'react-icons/go'
 import { BsFilePost } from 'react-icons/bs'
 import { RiContactsLine, RiGithubLine } from 'react-icons/ri'
 import { useRouter } from 'next/router'
-import useComponentVisible from './hooks/useComponentVisible'
 
 const Navbar = () => {
-  const [isDropped, setDropdown] = useState(false)
+  const [dropped, setDropped] = useState(false)
   const [projectsActive, setProjectsActive] = useState(false)
   const [postsActive, setPostsActice] = useState(false)
   const [contactActive, setContactActive] = useState(false)
   const router = useRouter()
-  const { ref, isComponentVisible } = useComponentVisible(false)
+  const ref = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const currentRoute = router.pathname.trim().split('/')[1]
@@ -74,26 +73,16 @@ const Navbar = () => {
           />
         </div>
         <div className='mr-4 flex flex-col xsm:flex-row '>
-          <div className=' mb-2 mr-2 scale-100 transition-all duration-200 md:scale-0 xsm:mb-0'>
-            <ActionButton
-              onClick={() => {
-                setDropdown(!isDropped)
-              }}
-            >
-              <FiList />
-            </ActionButton>
-            <Dropdown
-              dropdownItems={{
-                HOME: '/',
-                PROJECTS: '/projects',
-                POSTS: '/posts',
-                CONTACT: '/contact',
-                SOURCE:
-                  'https://github.com/mssalkhalifah/mssalkhalifah.github.io',
-              }}
-              isDropped={isDropped}
-            />
-          </div>
+          <Dropdown
+            dropdownItems={{
+              HOME: '/',
+              PROJECTS: '/projects',
+              POSTS: '/posts',
+              CONTACT: '/contact',
+              SOURCE:
+                'https://github.com/mssalkhalifah/mssalkhalifah.github.io',
+            }}
+          />
           <div className=' mr-2'>
             <ActionButton>
               <FiSun />

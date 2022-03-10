@@ -1,8 +1,8 @@
-import React, { MutableRefObject } from 'react'
+import React, { MutableRefObject, RefObject } from 'react'
 
 interface ActionButtonProps {
   onClick?: () => void
-  ref?: MutableRefObject<HTMLButtonElement>
+  ref?: RefObject<HTMLButtonElement>
   children?: React.ReactNode
 }
 
@@ -12,7 +12,7 @@ const ActionButton = ({ children, onClick, ref }: ActionButtonProps) => {
       <button
         ref={ref}
         onClick={onClick}
-        className=" rounded-lg bg-primary p-3 shadow-md duration-75 hover:bg-info active:scale-90"
+        className=' rounded-lg bg-primary p-3 shadow-md duration-75 hover:bg-info active:scale-90'
       >
         {children}
       </button>

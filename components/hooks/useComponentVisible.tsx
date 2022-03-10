@@ -1,6 +1,9 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, RefObject } from 'react'
 
-export default function useComponentVisible(initialIsVisible: boolean) {
+export default function useComponentVisible(
+  initialIsVisible: boolean,
+  buttonRef?: RefObject<HTMLButtonElement>
+) {
   const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -11,7 +14,12 @@ export default function useComponentVisible(initialIsVisible: boolean) {
   }
 
   const handleClickOutside = (event: Event) => {
-    if (ref.current && !ref.current.contains(event.target as Node)) {
+    if (
+      ref.current &&
+      !ref.current.contains(event.target as Node) &&
+      buttonRef?.current &&
+      !buttonRef.current.contains(event.target as Node)
+    ) {
       setIsComponentVisible(false)
     }
   }

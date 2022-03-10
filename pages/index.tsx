@@ -7,7 +7,7 @@ import { IoSchoolOutline, IoHeart } from 'react-icons/io5'
 import IndexLayout from '../components/layouts/IndexLayout'
 import { ReactElement } from 'react'
 import { motion } from 'framer-motion'
-import Card from '../components/Card'
+import TextBlock from '../components/TextBlock'
 
 export default function Home() {
   return (
@@ -24,22 +24,9 @@ export default function Home() {
       </Head>
       <div className=' flex flex-col'>
         <Profile />
-        <div className='mx-2 mt-4 flex flex-col items-center justify-center md:flex-row'>
-          <Card
-            description='lorem jahsdlfikjuuasdlfikjhalksdjfhalsduif asdf asd  asdfasdfasdff uaflsdif asdliuf'
-            className='mx-2 mb-10 self-center md:mb-0'
-            title=' template title'
-          />
-          <Card
-            description='lorem jahsdlfikjuuasdlfikjhalksdjfhalsduif asdf asd  asdfasdfasdff uaflsdif asdliuf'
-            title=' template title'
-            className='mx-2 self-center'
-          />
-        </div>
-        <div className='grid max-w-2xl grid-rows-3 self-center 2xl:grid-cols-2 2xl:grid-rows-1 '>
-          <div className='flex flex-col items-center justify-center p-4'>
-            <Header>What I do</Header>
-            <Paragraph>
+        <div className='my-4 grid max-w-2xl self-center'>
+          <TextBlock header={['What I do', 'Biography']}>
+            <p className='row-start-2 mx-2 mb-2 flex flex-col self-center'>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
               saepe nobis quia nemo vero, voluptate, magni consequatur quos
               ducimus ab vitae voluptas aut omnis aliquid at eveniet dolore non?
@@ -47,10 +34,7 @@ export default function Home() {
               Ipsa nam cupiditate quisquam dolores voluptatibus, ut ullam at
               dolor assumenda! Adipisci voluptatibus quas, itaque placeat beatae
               qui laboriosam quasi vero doloribus.
-            </Paragraph>
-          </div>
-          <div className='flex flex-col items-center justify-center p-4'>
-            <Header>Biography</Header>
+            </p>
             <GridTable
               content={
                 new Map<string, React.ReactNode | string>([
@@ -73,17 +57,20 @@ export default function Home() {
                 ])
               }
             />
-          </div>
+          </TextBlock>
           <div className=' flex flex-col items-center justify-center p-4 2xl:col-span-2'>
             <Header>
               What I <IoHeart className=' ml-2' />
             </Header>
-            <Paragraph>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione
-              iste illum veritatis adipisci, id sequi repellendus. Nemo cum,
-              saepe inventore deleniti nesciunt nostrum, ad, deserunt in sed
-              tenetur animi adipisci.
-            </Paragraph>
+            <p className='row-start-2 mx-2 mb-2 flex flex-col self-center'>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+              saepe nobis quia nemo vero, voluptate, magni consequatur quos
+              ducimus ab vitae voluptas aut omnis aliquid at eveniet dolore non?
+              Amet. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Ipsa nam cupiditate quisquam dolores voluptatibus, ut ullam at
+              dolor assumenda! Adipisci voluptatibus quas, itaque placeat beatae
+              qui laboriosam quasi vero doloribus.
+            </p>
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-import { Html } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -49,7 +48,7 @@ const IndexLayout = ({ children }: { children: React.ReactNode }) => {
             <MyCanvas routerPath={router.pathname} />
           </Canvas>
         </div>
-        <main className='flex h-[90%] w-full flex-col items-center self-center px-[5%] xl:w-7/12 xl:overflow-y-auto'>
+        <main className='flex h-[90%] flex-col items-center self-center px-[5%] xl:w-7/12 xl:overflow-y-auto'>
           {children}
           <Social />
         </main>

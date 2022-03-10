@@ -19,29 +19,16 @@ const ProjectPage = () => {
         <meta httpEquiv='X-UA-Compatible' content='ie=edge'></meta>
       </Head>
       <div className='grid lg:grid-cols-2'>
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
+        <div className='mx-4 py-2'>
+          <Card
+            title='My Portfolio'
+            link='/projects/Portfolio'
+            description='This is my first and personal web project'
+            image='protfolio/Thumbnail_w4oehm.jpg'
+          />
+        </div>
       </div>
     </motion.div>
-  )
-}
-
-const GridItem = () => {
-  return (
-    <div className='mx-4 py-2'>
-      <Card
-        title='Template'
-        link='/projects/2'
-        description='lorem hhjsdflusadhjsdflusadjsdflusad alkdsjfh alksjdhfla'
-      />
-    </div>
   )
 }
 

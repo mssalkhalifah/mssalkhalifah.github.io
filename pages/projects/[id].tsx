@@ -10,6 +10,7 @@ import TextBlock from '../../components/TextBlock'
 import StackList, { StackType } from '../../components/StackList'
 
 const ProjectPage = ({ image }: { image?: string }) => {
+  image = 'protfolio/Thumbnail_w4oehm.jpg'
   const imageSource = {
     url: image ? image : 'protfolio/placeholder_1280_720_idtgoz.jpg',
     blurImg: image ? image : 'q_1/protfolio/placeholder_1280_720_idtgoz.jpg',
@@ -41,22 +42,15 @@ const ProjectPage = ({ image }: { image?: string }) => {
       </div>
       <TextBlock header={['Description', 'Stack']}>
         <div className='row-start-2 m-4 flex flex-col self-center'>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis quas,
-          accusantium ratione obcaecati, qui tenetur nulla velit animi ab minus
-          facere at ea excepturi. Amet quae nam voluptas doloribus totam. Lorem
-          ipsum dolor sit amet consectetur, adipisicing elit. Vel accusamus,
-          facilis sed non nihil, fugiat delectus possimus ab facere expedita,
-          mollitia obcaecati hic quidem accusantium ipsa natus quia velit
-          reiciendis.
+          One of the courses I chose for last semester is Internet Technologies
+          which focuses on web development. And I wanted to improve my web
+          development skills. Hence, building a portfolio website as my entry
+          project into web development.
         </div>
         <StackList
           props={{
             'https://nextjs.org/': {
               'NextJS/React - Front End': StackType.FRONT,
-            },
-            'https://nextjs.org/api': { 'NextJS/React - API': StackType.API },
-            'https://firebase.google.com/': {
-              'Firebase - Server': StackType.SERVER,
             },
           }}
         />

@@ -20,9 +20,9 @@ const Profile = () => {
     <div className='mb-4 flex flex-col items-center justify-center sm:flex-row'>
       <div className='flex justify-center overflow-hidden rounded-full border-2 border-info'>
         <Image
-          src={'protfolio/60398196_tyxwk5.jpg'}
+          src={'r_400/protfolio/60398196_tyxwk5.jpg'}
           placeholder='blur'
-          blurDataURL='q_1/v1646565441/protfolio/60398196_tyxwk5.jpg'
+          blurDataURL='r_400,q_1/v1646565441/protfolio/60398196_tyxwk5.jpg'
           height={150}
           width={150}
         />

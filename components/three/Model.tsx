@@ -69,30 +69,35 @@ const Model = ({
 
   useEffect(() => {
     if (animations && nodes) {
-      switch (routePath?.trim().split('/')[1]) {
-        case 'projects':
-          if (!playedAnimations[0]) {
-            const projectRoomAnimations = animations.filter((animation) =>
-              animation.name.includes('Project')
-            )
-            const projectRoomMixer = nodes
-              .filter((node) => node.name.includes('Project'))
-              .map((node) => new AnimationMixer(node))
+      const loadAnimation = async () => {
+        switch (routePath?.trim().split('/')[1]) {
+          case 'projects':
+            if (!playedAnimations[0]) {
+              const projectRoomAnimations = animations.filter((animation) =>
+                animation.name.includes('Project')
+              )
+              const projectRoomMixer = nodes
+                .filter((node) => node.name.includes('Project'))
+                .map((node) => new AnimationMixer(node))
 
-            setMixers(projectRoomMixer)
-            projectRoomAnimations.forEach((animation, i = 0) => {
-              const animate = projectRoomMixer[i].clipAction(animation)
-              animate.setLoop(LoopOnce, 1)
-              animate.clampWhenFinished = true
-              animate.play()
-            })
-            playedAnimations[0] = true
-          }
-          break
-
-        default:
-          break
+              setMixers(projectRoomMixer)
+              return { projectRoomAnimations, projectRoomMixer }
+            }
+        }
       }
+      loadAnimation().then((value) => {
+        if (value) {
+          value.projectRoomAnimations.forEach((animation, i = 0) => {
+            const animate = value.projectRoomMixer[i].clipAction(animation)
+            animate.setLoop(LoopOnce, 1)
+            animate.clampWhenFinished = true
+            animate.play()
+          })
+          playedAnimations[0] = true
+        } else {
+          console.error('Model animation undefined')
+        }
+      })
     }
   }, [routePath])
 

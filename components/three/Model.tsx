@@ -27,7 +27,7 @@ const Model = ({
   useEffect(() => {
     const loader = new GLTFLoader()
     loader.load(
-      'office_baked.glb',
+      'office-baked-5.glb',
       async (glb) => {
         const nodes = await glb.parser.getDependencies('node')
         const animations = await glb.parser.getDependencies('animation')

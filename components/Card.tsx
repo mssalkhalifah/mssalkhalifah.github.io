@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useAnimation } from 'framer-motion'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import CloudiImage from './CloudiImage'
 import useWindowSize from './hooks/useWindowResize'
 
 interface CardProps {
@@ -13,14 +13,9 @@ interface CardProps {
 }
 
 const Card = ({ image, description, title, className, link }: CardProps) => {
-  const imageSource = {
-    url: image ? image : 'protfolio/placeholder_1280_720_idtgoz.jpg',
-    blurImg: image ? image : 'q_1/protfolio/placeholder_1280_720_idtgoz.jpg',
-  }
   const currentLink = link ? link : ''
   const windowSize = useWindowSize()
   const animate = useAnimation()
-  const [isLoaded, setLoading] = useState(false)
   const [isHoverable, setHoverable] = useState(true)
   const cardHoverVariant = {
     hover: { y: isHoverable ? -4 : 0 },
@@ -60,15 +55,7 @@ const Card = ({ image, description, title, className, link }: CardProps) => {
         }`}
       >
         <Link scroll={false} href={currentLink} passHref>
-          <Image
-            src={imageSource.url}
-            blurDataURL={imageSource.blurImg}
-            width='426'
-            height='240'
-            className={`${isLoaded ? ' animate-unblur' : ''}`}
-            onLoadingComplete={() => setLoading(false)}
-            onLoad={() => setLoading(true)}
-          />
+          <CloudiImage src={image} width={426} height={240} />
         </Link>
       </div>
 

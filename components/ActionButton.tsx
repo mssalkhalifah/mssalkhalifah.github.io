@@ -1,4 +1,4 @@
-import React, { MutableRefObject, RefObject } from 'react'
+import React, { RefObject } from 'react'
 
 interface ActionButtonProps {
   onClick?: () => void

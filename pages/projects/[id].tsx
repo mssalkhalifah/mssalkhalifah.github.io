@@ -8,13 +8,10 @@ import ProjectPageLayout from '../../components/layouts/projects/ProjectPageLayo
 import { IoArrowForward } from 'react-icons/io5'
 import TextBlock from '../../components/TextBlock'
 import StackList, { StackType } from '../../components/StackList'
+import CloudiImage from '../../components/CloudiImage'
 
 const ProjectPage = ({ image }: { image?: string }) => {
   image = 'protfolio/Thumbnail_w4oehm.jpg'
-  const imageSource = {
-    url: image ? image : 'protfolio/placeholder_1280_720_idtgoz.jpg',
-    blurImg: image ? image : 'q_1/protfolio/placeholder_1280_720_idtgoz.jpg',
-  }
   return (
     <motion.div
       initial='pageInitial'
@@ -30,14 +27,11 @@ const ProjectPage = ({ image }: { image?: string }) => {
           <IoArrowForward className=' mr-2 rotate-180' /> Back
         </a>
       </Link>
-      <div className=' relative max-w-xl place-self-center'>
-        <Image
-          src={imageSource.url}
-          placeholder='blur'
-          blurDataURL={imageSource.blurImg}
-          width='1280'
-          height='720'
-          className=' rounded-lg'
+      <div className=' relative flex max-w-xl items-center place-self-center overflow-hidden rounded-lg'>
+        <CloudiImage
+          src='protfolio/Thumbnail_w4oehm.jpg'
+          width={1280}
+          height={720}
         />
       </div>
       <TextBlock header={['Description', 'Stack']}>

@@ -1,6 +1,6 @@
 import { motion, useAnimation } from 'framer-motion'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 interface LinkButtonProps {
   href?: string

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
-import { FiSun, FiHome, FiList } from 'react-icons/fi'
+import { FiSun, FiHome } from 'react-icons/fi'
 import ActionButton from './ActionButton'
 import Dropdown from './Dropdown'
 import LinkButton from './LinkButton'

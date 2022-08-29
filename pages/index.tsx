@@ -28,12 +28,7 @@ export default function Home() {
         <div className='my-4 grid max-w-2xl self-center'>
           <TextBlock header={['What I do', 'Biography']}>
             <p className='row-start-2 mx-2 mb-2 flex flex-col self-center'>
-              I am an undergraduate computer science student at Imam Mohammad
-              Ibn Saud Islamic University. I am Saudi. And I am currently live
-              in Riyadh in Saudi Arabia. Also, I can speak three languages. And
-              those are English, Arabic, and Thai. And I like developing tiny
-              demos of games. Furthermore, I have a knack for android
-              applications and currently working on my web development skills.
+I am a fresh computer science graduate at Imam Mohammad Ibn Saud Islamic University with first-class honor. I am Saudi. And I currently live in Riyadh. Also, I can speak three languages. And those are English, Arabic, and Thai. And I like developing tiny demos of games as a hobby. Furthermore, I have a knack for android applications and currently looking for mobile or web development jobs to further increase my knowledge and experiences.
             </p>
             <GridTable
               content={
@@ -58,6 +53,12 @@ export default function Home() {
                     <p className=' flex items-center' key={2}>
                       <IoSchoolOutline className=' mr-2' />
                       Had an internship at Aramco.
+                    </p>,
+                  ],
+                  [
+                    '2022',
+                    <p className=' flex items-center' key={2}>
+                    Graduated from Imam Mohammad Ibn Saud Islamic University with Bachelor's degree in computer science with first-class honor.
                     </p>,
                   ],
                 ])

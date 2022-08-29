@@ -39,7 +39,7 @@ const Profile = () => {
           animate='visible'
           className='rounded-lg bg-darkShades p-1 text-center text-lightShades'
         >
-          {'Hi! I am currently working on my graduation project. '
+          {'Hi! I am currently looking for mobile or web development jobs. '
             .split('')
             .map((char, i) => (
               <motion.span key={`${char}=${i}`} variants={letter}>

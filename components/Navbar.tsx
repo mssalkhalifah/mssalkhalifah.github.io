@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, /* useRef,  */useState } from 'react'
 import { FiSun, FiHome } from 'react-icons/fi'
 import ActionButton from './ActionButton'
 import Dropdown from './Dropdown'
@@ -10,12 +10,12 @@ import { RiContactsLine, RiGithubLine } from 'react-icons/ri'
 import { useRouter } from 'next/router'
 
 const Navbar = () => {
-  const [dropped, setDropped] = useState(false)
+  // const [dropped, setDropped] = useState(false)
   const [projectsActive, setProjectsActive] = useState(false)
   const [postsActive, setPostsActice] = useState(false)
   const [contactActive, setContactActive] = useState(false)
   const router = useRouter()
-  const ref = useRef<HTMLButtonElement>(null)
+  // const ref = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const currentRoute = router.pathname.trim().split('/')[1]

@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import Link from 'next/link'
 import { ReactElement } from 'react'
 import IndexLayout from '../../components/layouts/IndexLayout'
@@ -10,8 +9,7 @@ import TextBlock from '../../components/TextBlock'
 import StackList, { StackType } from '../../components/StackList'
 import CloudiImage from '../../components/CloudiImage'
 
-const ProjectPage = ({ image }: { image?: string }) => {
-  image = 'protfolio/Thumbnail_w4oehm.jpg'
+const ProjectPage = ({ }: { image?: string }) => {
   return (
     <motion.div
       initial='pageInitial'

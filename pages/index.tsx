@@ -58,7 +58,7 @@ I am a fresh computer science graduate at Imam Mohammad Ibn Saud Islamic Univers
                   [
                     '2022',
                     <p className=' flex items-center' key={2}>
-                    Graduated from Imam Mohammad Ibn Saud Islamic University with Bachelor's degree in computer science with first-class honor.
+                    Graduated from Imam Mohammad Ibn Saud Islamic University with Bachelor&apos;s degree in computer science with first-class honor.
                     </p>,
                   ],
                 ])

@@ -1,7 +1,7 @@
-import { useRef } from 'react'
+// import { useRef } from 'react'
 
 const Lights = () => {
-  const directionalLight = useRef()
+  // const directionalLight = useRef()
   //useHelper(directionalLight, DirectionalLightHelper, 1, 'red')
   return (
     <>
